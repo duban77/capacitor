@@ -1,0 +1,5 @@
+{
+  "appId": "com.example.app",
+  "appName": "npm i @capacitor/androidnpx cap add android",
+  "webDir": "dist"
+}

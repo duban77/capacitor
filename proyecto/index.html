@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Invisible</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      background-color: #222;
+      color: white;
+    }
+    #colorBox {
+      margin: 20px;
+      width: 300px;
+      height: 100px;
+      background-color: transparent;
+      border: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #message {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Adivina el Color Invisible</h1>
+  <div id="colorBox">????</div>
+  <input type="text" id="guess" placeholder="Escribe un color en inglés">
+  <button onclick="checkGuess()">Adivinar</button>
+  <div id="message"></div>
+
+  <script>
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "brown", "cyan", "magenta"];
+    let selectedColor = colors[Math.floor(Math.random() * colors.length)];
+
+    document.getElementById('colorBox').style.backgroundColor = selectedColor;
+
+    function checkGuess() {
+      const guess = document.getElementById('guess').value.trim().toLowerCase();
+      const message = document.getElementById('message');
+      if (guess === selectedColor) {
+        message.textContent = "¡Correcto! 🎉 Era " + selectedColor.toUpperCase();
+        message.style.color = "lightgreen";
+      } else {
+        message.textContent = "Incorrecto. Intenta de nuevo.";
+        message.style.color = "salmon";
+      }
+    }
+  </script>
+</body>
+</html>
